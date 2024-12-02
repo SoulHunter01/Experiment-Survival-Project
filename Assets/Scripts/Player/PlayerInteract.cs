@@ -17,10 +17,13 @@ public class PlayerInteract : MonoBehaviour
     private PlayerRaycaster playerRaycaster;
     private PlayerUI playerUI;
     private InputManager inputManager;
+
     void Start()
     {
+        
         // cam = GetComponent<PlayerLook>().cam;
         playerRaycaster = GetComponent<PlayerRaycaster>();
+        Debug.Log(playerRaycaster);
         playerUI = GetComponent<PlayerUI>();
         inputManager = GetComponent<InputManager>();
     }

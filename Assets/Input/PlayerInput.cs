@@ -71,6 +71,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""9c700560-99ce-4bcb-bb49-b2686bfdd335"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -225,6 +234,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pickup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b84e9c3c-1014-490e-ab4a-c24f09b29ea1"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -804,6 +824,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Standing_Jump = m_Standing.FindAction("Jump", throwIfNotFound: true);
         m_Standing_Interact = m_Standing.FindAction("Interact", throwIfNotFound: true);
         m_Standing_Pickup = m_Standing.FindAction("Pickup", throwIfNotFound: true);
+        m_Standing_Attack = m_Standing.FindAction("Attack", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -886,6 +907,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Standing_Jump;
     private readonly InputAction m_Standing_Interact;
     private readonly InputAction m_Standing_Pickup;
+    private readonly InputAction m_Standing_Attack;
     public struct StandingActions
     {
         private @PlayerInput m_Wrapper;
@@ -895,6 +917,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Standing_Jump;
         public InputAction @Interact => m_Wrapper.m_Standing_Interact;
         public InputAction @Pickup => m_Wrapper.m_Standing_Pickup;
+        public InputAction @Attack => m_Wrapper.m_Standing_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Standing; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -919,6 +942,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Pickup.started += instance.OnPickup;
             @Pickup.performed += instance.OnPickup;
             @Pickup.canceled += instance.OnPickup;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
         }
 
         private void UnregisterCallbacks(IStandingActions instance)
@@ -938,6 +964,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Pickup.started -= instance.OnPickup;
             @Pickup.performed -= instance.OnPickup;
             @Pickup.canceled -= instance.OnPickup;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
         }
 
         public void RemoveCallbacks(IStandingActions instance)
@@ -1134,6 +1163,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnPickup(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
