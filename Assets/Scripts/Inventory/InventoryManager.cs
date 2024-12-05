@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
-    [SerializeField] List<Item> Items = new List<Item>();
+    [SerializeField] readonly List<Item> Items = new();
 
-    [SerializeField] Transform ItemContent;
-    [SerializeField] public GameObject inventoryItem;
+    [SerializeField] readonly Transform ItemContent;
+    [SerializeField] private GameObject inventoryItem;
 
     private void Awake()
     {

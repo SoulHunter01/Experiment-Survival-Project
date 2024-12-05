@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// using UnityEngine.EventSystems;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -23,7 +22,6 @@ public class PlayerInteract : MonoBehaviour
         
         // cam = GetComponent<PlayerLook>().cam;
         playerRaycaster = GetComponent<PlayerRaycaster>();
-        Debug.Log(playerRaycaster);
         playerUI = GetComponent<PlayerUI>();
         inputManager = GetComponent<InputManager>();
     }
@@ -31,6 +29,7 @@ public class PlayerInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    
         // if(inputManager.CurrentActionMap == inputManager.standing.Get()){
         //     Ray ray = new(cam.transform.position, cam.transform.forward);
         //     // Physics.Raycast(ray, out RaycastHit hit, distance);

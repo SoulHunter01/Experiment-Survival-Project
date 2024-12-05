@@ -23,8 +23,11 @@ public class InputManager : MonoBehaviour
         sitting = playerInput.Sitting;
 
 
-        motor = GetComponent<PlayerMotor>();
-        attack = GetComponent<PlayerAttack>();
+        // motor = GetComponent<PlayerMotor>();
+        // attack = GetComponent<PlayerAttack>();
+        motor = ComponentUtil.getSafeComponent<PlayerMotor>(gameObject, "InputManager");
+        attack = ComponentUtil.getSafeComponent<PlayerAttack>(gameObject, "InputManager");
+        
         //callback attached:
         standing.Jump.performed += ctx => motor.Jump();
         standing.Attack.performed += ctx => attack.Attack();

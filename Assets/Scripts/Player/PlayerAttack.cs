@@ -7,11 +7,13 @@ public class PlayerAttack : MonoBehaviour
     private PlayerRaycaster raycaster;
     private InputManager inputManager;
     [SerializeField] private float attackCooldown = 1f;
-    [SerializeField] private float lastAttackTime;
+    private float lastAttackTime;
 
     void Awake(){
-        raycaster = GetComponent<PlayerRaycaster>();
-        inputManager = GetComponent<InputManager>();
+        raycaster = ComponentUtil.getSafeComponent<PlayerRaycaster>(gameObject, "PlayerAttack");
+        inputManager = ComponentUtil.getSafeComponent<InputManager>(gameObject, "PlayerAttack");
+
+
         lastAttackTime = Time.time;
     }
 
