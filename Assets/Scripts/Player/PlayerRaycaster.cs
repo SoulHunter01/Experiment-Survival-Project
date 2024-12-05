@@ -7,18 +7,14 @@ public class PlayerRaycaster : MonoBehaviour
     private Camera mainCamera;
     [SerializeField] private float defaultDistance = 3f;
     [SerializeField] private LayerMask layerMask;
-
-    
     private RaycastHit hit;
     private bool rayHit;
-    void Start()
-    {
+    void Start(){
         mainCamera = GetComponent<PlayerLook>().cam;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         CastRay();
     }
 

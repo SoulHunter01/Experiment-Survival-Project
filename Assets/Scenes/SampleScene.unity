@@ -5027,7 +5027,7 @@ MonoBehaviour:
   pickupRange: 20
   pickupLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 128
 --- !u!114 &992371874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7765,8 +7765,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8845de5722fb0f41962706329fb66e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Items: []
-  ItemContent: {fileID: 1887632608}
   inventoryItem: {fileID: 2648909382590005682, guid: ca44a826d5ce52e42b95ee65c44ac38c,
     type: 3}
 --- !u!4 &1659644369
@@ -7798,11 +7796,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1289100062823888, guid: 3561d375b004832418eaf9271450e06f, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1295194218107404, guid: 3561d375b004832418eaf9271450e06f, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4902080754245960, guid: 3561d375b004832418eaf9271450e06f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7859,7 +7857,8 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8632764662195029174, guid: 3561d375b004832418eaf9271450e06f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

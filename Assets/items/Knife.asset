@@ -16,3 +16,4 @@ MonoBehaviour:
   itemName: Knife
   value: 10
   icon: {fileID: 21300000, guid: 5fd46b22ac4a6b34992a5ed03c4ec456, type: 3}
+  damage: 20

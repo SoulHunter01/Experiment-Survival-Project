@@ -6,13 +6,15 @@ public class PlayerAttack : MonoBehaviour
 {
     private PlayerRaycaster raycaster;
     private InputManager inputManager;
+    private Pickup pickup;
     [SerializeField] private float attackCooldown = 1f;
     private float lastAttackTime;
 
     void Awake(){
         raycaster = ComponentUtil.getSafeComponent<PlayerRaycaster>(gameObject, "PlayerAttack");
         inputManager = ComponentUtil.getSafeComponent<InputManager>(gameObject, "PlayerAttack");
-
+        pickup = ComponentUtil.getSafeComponent<Pickup>(gameObject, "PlayerAttack");
+        
 
         lastAttackTime = Time.time;
     }
@@ -31,6 +33,7 @@ public class PlayerAttack : MonoBehaviour
     }
 
     public void Attack(){
+
 
         if(Time.time - lastAttackTime < attackCooldown) return;
         Debug.Log("Attacking");
