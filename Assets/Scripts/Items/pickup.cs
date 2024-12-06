@@ -32,6 +32,13 @@ public class Pickup : MonoBehaviour
         }
     }
 
+    public float GetDamage(){
+        if(heldItem == null) return 0;
+        ItemController itemController = ComponentUtil.getSafeComponent<ItemController>(heldItem, "Pickup");
+
+        if(itemController.Item == null) return 0;
+        return itemController.Item.damage;
+    }
     private void TryPickupItem()
     {
         RaycastHit hit;
