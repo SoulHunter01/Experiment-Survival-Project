@@ -7,7 +7,7 @@ public class Attack : BaseState
     // Start is called before the first frame update
     private float attackTimer;
     private float attackRate = 1.5f;
-    private float damage = 10;
+    [SerializeField] private float damage = 10;
     private PlayerHealth playerHealth;
 
     public override void Enter()
@@ -21,7 +21,7 @@ public class Attack : BaseState
         if(controller.PlayerVisible()){
             attackTimer += Time.deltaTime;
             if(attackTimer > attackRate){
-                playerHealth.TakeDamage(damage);
+                playerHealth.TakeDamage(damage, controller.GravesTransform.position, controller.EnemyUniqueID);
                 attackTimer = 0;
             }
         }

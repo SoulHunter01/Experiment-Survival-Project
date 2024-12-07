@@ -9,6 +9,10 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private Image healthBar;
     [SerializeField] private float maxHealth;
+    [SerializeField] private DamageIndicator damageIndicator;
+    [SerializeField] private Canvas damageIndicatorCanvas;
+
+    private Dictionary<float, DamageIndicator> activeDamageIndicators = new Dictionary<float, DamageIndicator>();
     void Start()
     {
         if(healthBar == null){
@@ -29,11 +33,34 @@ public class PlayerHealth : MonoBehaviour
         // Debug.Log("Health: " + fillAm);
     }
 
-    public void TakeDamage(float damage){
+    public void TakeDamage(float damage, Vector3 damagePos, float enemyUniqueID){
+
         health -= damage;
         if(health <= 0){
             Die();
+            return;
         }
+        if(activeDamageIndicators.ContainsKey(enemyUniqueID)){
+            if(activeDamageIndicators[enemyUniqueID] != null){
+                Destroy(activeDamageIndicators[enemyUniqueID].gameObject);
+            }
+            activeDamageIndicators.Remove(enemyUniqueID);
+        }
+
+        DamageIndicator indicator = Instantiate(damageIndicator, damageIndicatorCanvas.transform);
+        indicator.SetDamageSrcPos(damagePos, enemyUniqueID);
+        //set active:
+        indicator.gameObject.SetActive(true);
+        activeDamageIndicators[enemyUniqueID] = indicator;
+        
+    }
+    private void OnDisable() {
+        foreach(var indicator in activeDamageIndicators.Values){
+            if(indicator != null){
+                Destroy(indicator.gameObject);
+            }
+        }
+        activeDamageIndicators.Clear();
     }
 
     private void Die(){

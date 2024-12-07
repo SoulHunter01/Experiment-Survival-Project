@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public static class ComponentUtil
-{
+public static class ComponentUtil{
     public static T getSafeComponent<T>(GameObject gameObject, string caller = "") where T : Component
     {
         if (gameObject == null){
