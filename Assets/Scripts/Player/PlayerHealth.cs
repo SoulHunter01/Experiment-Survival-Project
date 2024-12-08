@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -11,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float maxHealth;
     [SerializeField] private DamageIndicator damageIndicator;
     [SerializeField] private Canvas damageIndicatorCanvas;
+    [SerializeField] private Canvas deathCanvas;
     private JumpScare jumpScare;
 
     private Dictionary<float, DamageIndicator> activeDamageIndicators = new Dictionary<float, DamageIndicator>();
@@ -69,5 +71,19 @@ public class PlayerHealth : MonoBehaviour
         dead = true;
         Debug.Log("Player has died");
         jumpScare.TriggerJumpScare();
+
+        StartCoroutine(ShowDeathScreen());
+    }
+
+    private IEnumerator ShowDeathScreen(){
+        yield return new WaitForSeconds(1f);
+        deathCanvas.gameObject.SetActive(true);
+        Time.timeScale = 0;
+
+    }
+
+    private void RetryLevel(){
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
