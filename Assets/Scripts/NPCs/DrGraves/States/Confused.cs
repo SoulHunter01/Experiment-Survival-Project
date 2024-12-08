@@ -38,13 +38,10 @@ public class Confused : BaseState{
             }
             else{
                 controller.GravesTransform.eulerAngles = new Vector3(0, currAngle + Mathf.Sign(angleDiff) * turnRate, 0);
-
             }
-
         }
         else{
             stateMachine.SwitchState(new Chase());
-            
         }
     }
     public override void Exit()

@@ -6,15 +6,17 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     private float health;
-
+    private bool dead = false;
     [SerializeField] private Image healthBar;
     [SerializeField] private float maxHealth;
     [SerializeField] private DamageIndicator damageIndicator;
     [SerializeField] private Canvas damageIndicatorCanvas;
+    private JumpScare jumpScare;
 
     private Dictionary<float, DamageIndicator> activeDamageIndicators = new Dictionary<float, DamageIndicator>();
     void Start()
-    {
+    {   
+        jumpScare = ComponentUtil.getSafeComponent<JumpScare>(gameObject, "Player Health");
         if(healthBar == null){
             Debug.LogError("Health bar is not assigned");
         }
@@ -34,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void TakeDamage(float damage, Vector3 damagePos, float enemyUniqueID){
-
+        if(dead) return;
         health -= damage;
         if(health <= 0){
             Die();
@@ -64,6 +66,8 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void Die(){
+        dead = true;
         Debug.Log("Player has died");
+        jumpScare.TriggerJumpScare();
     }
 }
