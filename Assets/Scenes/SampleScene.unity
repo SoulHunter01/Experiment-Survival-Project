@@ -6294,7 +6294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb590f533c8bcf64fa45e068e6a58e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpScarePrefab: {fileID: 906707550}
+  jumpScarePrefab: {fileID: 920425500}
   mainCamera: {fileID: 330585545}
 --- !u!1001 &1011232590
 PrefabInstance:
