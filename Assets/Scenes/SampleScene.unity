@@ -2764,13 +2764,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 567095141}
+  - component: {fileID: 567095142}
   m_Layer: 5
   m_Name: JumpScare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &567095141
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2791,6 +2792,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &567095142
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567095140}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &605877915
 GameObject:
   m_ObjectHideFlags: 0
@@ -4941,6 +4954,7 @@ GameObject:
   - component: {fileID: 992371873}
   - component: {fileID: 992371874}
   - component: {fileID: 992371875}
+  - component: {fileID: 992371876}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5192,6 +5206,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 1
+--- !u!114 &992371876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992371861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb590f533c8bcf64fa45e068e6a58e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpScarePrefab: {fileID: 906707550}
+  mainCamera: {fileID: 330585545}
 --- !u!1 &1020608940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1289100062823888, guid: 3561d375b004832418eaf9271450e06f,
@@ -7810,8 +7838,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 264, y: 0}
-  m_SizeDelta: {x: 363.7142, y: 363.7142}
+  m_AnchoredPosition: {x: 35.444336, y: 43.555695}
+  m_SizeDelta: {x: 411.1691, y: 411.1691}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1715930569
 MonoBehaviour:
