@@ -6372,7 +6372,6 @@ Transform:
   - {fileID: 809906068}
   - {fileID: 2122851482}
   - {fileID: 1764612540}
-  - {fileID: 2025080002}
   - {fileID: 1916765284}
   - {fileID: 1970715918}
   - {fileID: 32576100}
@@ -6417,6 +6416,7 @@ Transform:
   - {fileID: 1311958031}
   - {fileID: 802691331}
   - {fileID: 1415797576}
+  - {fileID: 2025080002}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1094789652
@@ -10700,7 +10700,7 @@ GameObject:
   - component: {fileID: 2025080000}
   - component: {fileID: 2025079999}
   - component: {fileID: 2025080003}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: CardScan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10791,7 +10791,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1083843651}
+  m_Father: {fileID: 1094789651}
   m_LocalEulerAnglesHint: {x: 0, y: 91.897, z: 0}
 --- !u!114 &2025080003
 MonoBehaviour:
