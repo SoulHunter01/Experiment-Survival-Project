@@ -89,6 +89,8 @@ public class Pickup : MonoBehaviour
         if (itemRigidbody != null)
         {
             itemRigidbody.isKinematic = true;
+            itemRigidbody.useGravity = false;
+            
 
         }
 
@@ -101,7 +103,11 @@ public class Pickup : MonoBehaviour
 
         Rigidbody itemRigidbody = heldItem.GetComponent<Rigidbody>();
         if (itemRigidbody != null)
+        { 
             itemRigidbody.isKinematic = false;
+            itemRigidbody.useGravity = true;
+        }
+        
 
         heldItem.transform.SetParent(null);
         heldItem = null;
