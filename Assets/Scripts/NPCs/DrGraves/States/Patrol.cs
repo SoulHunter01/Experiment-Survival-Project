@@ -9,6 +9,7 @@ public class Patrol : BaseState
     {
         // base.Enter();
         // Debug.Log("Patrol Enter");
+        // stateAnimator.SetBool("Walking", true);
     }
 
     public override void Execute()
