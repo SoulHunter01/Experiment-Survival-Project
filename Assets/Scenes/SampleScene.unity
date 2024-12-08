@@ -2723,7 +2723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557823122}
   m_Layer: 0
-  m_Name: Node
+  m_Name: Node 6
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3219,7 +3219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 776070423}
   m_Layer: 0
-  m_Name: Node (1)
+  m_Name: Node 1
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4833,9 +4833,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 906707550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8644ec4a85ecc3f4dae3512ac9c0df87, type: 3}
+  m_Script: {fileID: 11500000, guid: bd092870ece2b50409dd3f613ddc2b52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 
+  path: {fileID: 1617048494}
+  playerInFov: 0
 --- !u!195 &906707556
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4884,7 +4887,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 906707550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d0d2e4480e934242819da8b9288674d, type: 3}
+  m_Script: {fileID: 11500000, guid: 03c675ffa978d0b44a2f0b0d9308fc02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &985905811
@@ -6104,7 +6107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1522833134}
   m_Layer: 0
-  m_Name: Node (2)
+  m_Name: Node 2
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -7333,7 +7336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1605513845}
   m_Layer: 0
-  m_Name: Node (5)
+  m_Name: Node 5
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -7490,12 +7493,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 557823122}
-  - {fileID: 1605513845}
-  - {fileID: 2121929209}
-  - {fileID: 1951443104}
-  - {fileID: 1522833134}
   - {fileID: 776070423}
+  - {fileID: 1522833134}
+  - {fileID: 1951443104}
+  - {fileID: 2121929209}
+  - {fileID: 1605513845}
+  - {fileID: 557823122}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1617048494
@@ -7507,9 +7510,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1617048492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c8941a7bcbf03d4c83b3998729515d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 29de3aa42af43fd45933be9879a3d2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nodes: []
 --- !u!1 &1657991059
 GameObject:
   m_ObjectHideFlags: 0
@@ -9329,7 +9333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1951443104}
   m_Layer: 0
-  m_Name: Node (3)
+  m_Name: Node 3
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -9935,7 +9939,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2121929209}
   m_Layer: 0
-  m_Name: Node (4)
+  m_Name: Node 4
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
