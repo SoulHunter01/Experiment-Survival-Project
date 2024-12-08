@@ -7,7 +7,7 @@ public class Chase : BaseState
     private float losePlayerTimer;
     private float moveTimer;
     // private float attackRange = 5f;
-    private float attackRangeSqr = 25f;
+    private float attackRangeSqr = 3.5f;
 
     public override void Enter()
     {
@@ -24,6 +24,8 @@ public class Chase : BaseState
             //if distance is less than 5, attack
             float distSquared = (controller.transform.position - player.transform.position).sqrMagnitude;
             if(distSquared < attackRangeSqr){
+
+                controller.Agent.SetDestination(controller.transform.position);
                 stateMachine.SwitchState(new Attack());
             }
         }
