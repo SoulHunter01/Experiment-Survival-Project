@@ -5,9 +5,11 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     [SerializeField] Transform itemHoldPoint;  // Where the player holds the item
-    [SerializeField] private GameObject heldItem;  // Currently held item
+    [SerializeField] public GameObject heldItem;  // Currently held item
     [SerializeField] float pickupRange = 3f;
     [SerializeField] LayerMask pickupLayer;
+    public bool x;
+    public int id;
 
     private PlayerInput playerInput;
 
@@ -32,11 +34,12 @@ public class Pickup : MonoBehaviour
         }
     }
 
-    public float GetDamage(){
-        if(heldItem == null) return 0;
+    public float GetDamage()
+    {
+        if (heldItem == null) return 0;
         ItemController itemController = ComponentUtil.getSafeComponent<ItemController>(heldItem, "Pickup");
 
-        if(itemController.Item == null) return 0;
+        if (itemController.Item == null) return 0;
         return itemController.Item.damage;
     }
     private void TryPickupItem()
@@ -52,10 +55,15 @@ public class Pickup : MonoBehaviour
                 // Add item to inventory
                 InventoryManager.Instance.Add(itemController.Item);
 
+
                 // Give player the choice to hold it or send it directly to the inventory
                 if (heldItem == null)
                 {
                     HoldItem(item);
+
+                    Debug.Log($"{itemController.Item.id} added to inventory.");
+                    id = itemController.Item.id;
+                    x = true;
                 }
                 else
                 {
@@ -79,7 +87,10 @@ public class Pickup : MonoBehaviour
 
         Rigidbody itemRigidbody = heldItem.GetComponent<Rigidbody>();
         if (itemRigidbody != null)
+        {
             itemRigidbody.isKinematic = true;
+
+        }
 
         Debug.Log($"Holding {heldItem.name}");
     }
