@@ -76,7 +76,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private IEnumerator ShowDeathScreen(){
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         deathCanvas.gameObject.SetActive(true);
         Time.timeScale = 0;
 
